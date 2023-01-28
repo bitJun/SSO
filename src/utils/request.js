@@ -7,7 +7,7 @@ import {
   get as getLanguage
 } from '@/utils/config';
 const service = axios.create({
-  baseURL: '/api/mobile/',
+  baseURL: '/api',
   timeout: 5000, // request timeout
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -38,7 +38,8 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     const res = response.data;
-    if (res.code !== 0) {
+    console.log('response', res);
+    if (res.code !== 1) {
       message.error(res.msg);
       if (res.code === 401) {
         router.push({
@@ -48,7 +49,7 @@ service.interceptors.response.use(
         return Promise.reject(new Error(res.msg || 'Error'))
       }
     } else {
-      return res.data
+      return res.result;
     }
   },
   error => {

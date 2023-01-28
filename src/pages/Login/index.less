@@ -1,7 +1,7 @@
-.login_view {
+.pc-login_view {
   height: 100vh;
   width: 100vw;
-  background-image: url('../../assets/images/bg.jpeg');
+  background-image: url('../../assets/images/bg.png');
   background-size: cover;
   position: relative;
   &_header {
@@ -87,6 +87,127 @@
         font-weight: 400;
         font-size: 14px;
         color: #FFFFFF;
+      }
+    }
+  }
+  &_footer {
+    position: absolute;
+    left: 40px;
+    bottom: 24px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    &_powered {
+      font-family: 'HarmonyOS Sans SC';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      color: #27273F;
+      margin-right: 8px;
+    }
+    &_name {
+      font-family: 'HarmonyOS Sans SC';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      color: #27273F;
+      margin-right: 22px;
+    }
+    &_icon {
+      width: 33px;
+      height: 33px;
+      cursor: pointer;
+      margin-right: 22px;
+    }
+  }
+}
+.login_view {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../assets/images/m_bg.png');
+  background-size: cover;
+  position: relative;
+  &_header {
+    padding-top: 384px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 96px;
+    &_logo {
+      width: 144px;
+      height: 236px;
+    }
+  }
+  &_container {
+    height: calc(100vh - 384px - 236px);
+    background: #ffffff;
+    &_form {
+      background: #ffffff;
+      width: 100%;
+      padding: 60px 48px 0px 48px;
+      &_title {
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 32px;
+        height: 64px;
+        text-align: center;
+        line-height: 64px;
+        margin-bottom: 48px;
+      }
+      &_control {
+        height: 112px;
+        margin-bottom: 48px;
+        background: #FAFAFA;
+        border-radius: 8px;
+        &_value {
+          background: #FAFAFA;
+          border-color: #FAFAFA;
+          padding: 0 16px;
+          height: 112px;
+          line-height: 112px;
+          font-family: 'HarmonyOS Sans SC';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 32px;
+          color: #7C8DB0;
+        }
+      }
+      &_agree {
+        height: 44px;
+        font-family: 'HarmonyOS Sans SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        color: #52556F;
+        margin-bottom: 78px;
+        /deep/ .ant-checkbox-wrapper {
+          font-size: 24px;
+        }
+      }
+      &_action {
+        text-align: center;
+      }
+      &_submit {
+        width: 560px;
+        height: 80px;
+        background: #3370FF;
+        border-color: #3370FF;
+        border-radius: 8px;
+        font-family: 'HarmonyOS Sans SC';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 34px;
+        color: #FFFFFF;
+        margin-bottom: 40px;
+      }
+      &_cancel {
+        font-family: 'PingFang SC';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 34px;
+        line-height: 48px;
+        text-align: center;
+        color: #3370FF;
       }
     }
   }
