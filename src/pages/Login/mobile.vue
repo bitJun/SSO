@@ -20,9 +20,14 @@
         <div class="login_view_container_form_control">
           <a-input
             v-model:value="login.passWord"
-            type="password"
+            :type="state.type"
             placeholder="请输入密码"
             class="login_view_container_form_control_value"
+          />
+          <img
+            :src="state.show ? eyeOn : eyeOff"
+            class="login_view_container_form_control_icon"
+            @click="onShowPwd()"
           />
         </div>
         <div class="login_view_container_form_agree">
@@ -31,28 +36,18 @@
           </a-checkbox>
         </div>
         <div class="login_view_container_form_action">
-          <a-button @click="loginSubmit" type="primary" class="login_view_container_form_submit">登录</a-button>
+          <div @click="loginSubmit" class="login_view_container_form_submit">登录</div>
           <p class="login_view_container_form_cancel">取消</p>
         </div>
       </div>
     </div>
-    <!-- <div class="login_view_footer">
-      <span class="login_view_footer_powered">Powered by</span>
-      <span class="login_view_footer_name">颐信巧思</span>
-      <img
-        src="@/assets/images/icon1.png"
-        class="login_view_footer_icon"
-      />
-      <img
-        src="@/assets/images/icon2.png"
-        class="login_view_footer_icon"
-      />
-    </div> -->
   </div>
 </template>
 <script setup>
 import { message } from 'ant-design-vue';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+import eyeOn from '@/assets/images/eye-on.png';
+import eyeOff from '@/assets/images/eye-off.png';
 import '@/utils/rem';
 import {
   getLogin
@@ -61,6 +56,10 @@ const login = reactive({
   userName: '',
   passWord: '',
   remember: true,
+});
+const state = reactive({
+  show: false,
+  type: 'password',
 });
 const onFinish = values => {
   console.log('Success:', values);
@@ -92,6 +91,11 @@ const loginSubmit = () => {
     .then(res=>{
       console.log('res', res);
     })
+}
+const onShowPwd = () => {
+  state.show = !state.show;
+  state.show ? state.type = 'text' : state.type = 'password';
+  console.log(state.show)
 }
 </script>
 <style lang="less" scoped>

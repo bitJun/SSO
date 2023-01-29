@@ -50,6 +50,7 @@
         margin-bottom: 24px;
         background: #FAFAFA;
         border-radius: 4px;
+        position: relative;
         &_value {
           background: #FAFAFA;
           border-color: #FAFAFA;
@@ -62,6 +63,14 @@
           font-size: 16px;
           line-height: 19px;
           color: #7C8DB0;
+        }
+        &_icon {
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: 17px;
+          right: 12px;
+          z-index: 9;
         }
       }
       &_agree {
@@ -140,8 +149,9 @@
   &_container {
     height: calc(100vh - 384px - 236px);
     background: #ffffff;
+    box-shadow: 12px 0px 36px rgba(87, 87, 87, 0.1);
+    border-radius: 24px 24px 0px 0px;
     &_form {
-      background: #ffffff;
       width: 100%;
       padding: 60px 48px 0px 48px;
       &_title {
@@ -159,6 +169,7 @@
         margin-bottom: 48px;
         background: #FAFAFA;
         border-radius: 8px;
+        position: relative;
         &_value {
           background: #FAFAFA;
           border-color: #FAFAFA;
@@ -170,6 +181,14 @@
           font-weight: 400;
           font-size: 32px;
           color: #7C8DB0;
+        }
+        &_icon {
+          width: 43.28px;
+          height: 42.42px;
+          position: absolute;
+          right: 26.36px;
+          top: 36.78px;
+          z-index: 9;
         }
       }
       &_agree {
@@ -188,8 +207,12 @@
         text-align: center;
       }
       &_submit {
+        margin: 0 auto 40px auto;
         width: 560px;
         height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #3370FF;
         border-color: #3370FF;
         border-radius: 8px;
@@ -198,7 +221,7 @@
         font-weight: 400;
         font-size: 34px;
         color: #FFFFFF;
-        margin-bottom: 40px;
+        letter-spacing: 0 !important;
       }
       &_cancel {
         font-family: 'PingFang SC';

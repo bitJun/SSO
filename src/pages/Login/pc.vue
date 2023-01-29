@@ -21,9 +21,14 @@
         <div class="pc-login_view_container_form_control">
           <a-input
             v-model:value="login.passWord"
-            type="password"
+            :type="state.type"
             placeholder="请输入密码"
             class="pc-login_view_container_form_control_value"
+          />
+          <img
+            :src="state.show ? eyeOn : eyeOff"
+            class="pc-login_view_container_form_control_icon"
+            @click="onShowPwd()"
           />
         </div>
         <div class="pc-login_view_container_form_agree">
@@ -54,10 +59,16 @@ import { message } from 'ant-design-vue';
 import {
   getLogin
 } from '@/api/user';
+import eyeOn from '@/assets/images/eye-on.png';
+import eyeOff from '@/assets/images/eye-off.png';
 const login = reactive({
   userName: '',
   passWord: '',
   remember: true,
+});
+const state = reactive({
+  show: false,
+  type: 'password',
 });
 const onFinish = values => {
   console.log('Success:', values);
@@ -92,6 +103,11 @@ const loginSubmit = () => {
       } = res;
       window.location.href = message;
     })
+}
+const onShowPwd = () => {
+  state.show = !state.show;
+  state.show ? state.type = 'text' : state.type = 'password';
+  console.log(state.show)
 }
 </script>
 <style lang="less" scoped>
