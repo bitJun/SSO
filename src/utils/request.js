@@ -7,7 +7,8 @@ import {
   get as getLanguage
 } from '@/utils/config';
 const service = axios.create({
-  baseURL: '/api',
+  // baseURL: '/api',
+  baseURL: 'https://welynk.cn',
   timeout: 5000, // request timeout
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
